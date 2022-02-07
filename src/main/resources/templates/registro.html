@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Registro de usuario</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container">
+            <div th:if="${error}" class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                <span th:text="${error}"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+            </div>
+        </div>
+        <form class="m-5" th:action="@{/auth/register}" method="POST">
+      <section class="form-register">
+            Registro
+        <br>
+          <input th:value="${nombre}" class="controls" type ="text" name="nombre" id="nombre" placeholder="Ingrese su nombre">
+        <br>
+          <input th:value="${email}" class="controls" type ="email" name="email" id="email" placeholder="Ingrese su correo electrónico">
+          <br>
+          <input th:value="${contra1}" class="controls" type ="password" name="contra1" id="contra1" placeholder="Ingrese su contraseña">
+          <br>
+          <input th:value="${contra2}" class="controls" type ="password" name="contra2" id="contra2" placeholder="Confirme su contraseña">
+    <div class="segundoFondo">
+        <br />
+          <br />
+          <br />
+          <input th:action="@{/auth/register}" class="botons" type="submit" value="Registrar">
+          <br>
+          <p><a th:href="@{/auth/login}">¿Ya tengo cuenta?</a></p>
+          </section>
+      </form>
+    </body>
+</html>

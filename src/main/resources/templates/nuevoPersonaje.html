@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Creación de personaje</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="container">
+            <div th:if="${error}" class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                <span th:text="${error}"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+            </div>
+        </div>
+        <form class="m-5" th:action="@{/charecters/new-Personaje}" method="POST">
+      <section class="form-register">
+            Personaje nuevo:
+        <br>
+          <input th:value="${nombre}" class="controls" type ="text" name="nombre" id="nombre" placeholder="Ingrese su nombre">
+        <br>
+          <input th:value="${edad}" class="controls" type ="text" name="edad" id="edad" placeholder="Ingrese la edad del personaje">
+          <br>
+          <input th:value="${peso}" class="controls" type ="text" name="peso" id="peso" placeholder="Ingrese el peso del personaje">
+          <br>
+          <input th:value="${historia}" class="controls" type ="text" name="historia" id="historia" placeholder="Historia del personaje">
+          <br>
+          <input th:value="${imagen}" class="controls" type ="multipart" name="imagen" id="imagen" placeholder="Seleccione la imagen">
+    <div class="segundoFondo">
+        <br />
+          <br />
+          <br />
+          <input th:action="@{/charecters/new-Personaje}" class="botons" type="submit" value="Registrar">
+          
+          </section>
+      </form>
+    </body>
+</html>
